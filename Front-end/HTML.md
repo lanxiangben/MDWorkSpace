@@ -5,11 +5,14 @@
 
      中文乱码问题可以在浏览器上设置编码方式为 **GB2312 或 UTF-8** 或者在 html 代码的最前面加上编码设置
 
-     '''<head> 
-
+     ```html
+     <head> 
      <meta http-equiv="Content-Type" content="text/html; charset=GB2312"> 
+     </head>
+     
+     ```
 
-     </head>'''
+     
 
   2. 标签
 
@@ -52,6 +55,7 @@
   5. 注释
 
      html使用`<!-- --> `进行注释 
+
 - 基本元素
   1. 标题
 
@@ -159,4 +163,124 @@
   14. 内联框架
 
       `<iframe>`即内联框架   通过内联框架 可以实现在网页中“插入”网页 
+
 - 表单元素
+
+  1. 文本框
+
+     `<input type="text">` 即表示文本框   并且只能够输入一行   如果要输入多行   使用[文本域](http://how2j.cn/k/html/html-textarea/196.html)   注： `<input>` 标签很特别，一般是不需要写成`<input />`或者`<input></input> `这样的。  并且`<input>` 这样的写法也是满足标准的 
+
+     - size 属性：设置文本框长度
+     - value 属性：设置初始值
+     - placeholder 属性：设置背景文字
+
+  2. 密码框
+
+     `<input type="password"> `即表示密码框  
+
+  3. 表单
+
+     - `<form>`用于向服务器提交数据，比如账号密码  
+
+     ```html
+     <form action="http://how2j.cn/study/login.jsp">
+     账号：<input type="text" name="name"> <br/>
+     密码：<input type="password" name="password" > <br/>
+     <input type="submit" value="登陆">
+     </form>
+     ```
+
+     - method="get"  
+
+       使用 method="get" 提交数据 是常用的提交数据的方式  如果 form 元素没有提供 method 属性，默认就是 get 方式提交数据 ，get 方式的一个特点就是，可以在浏览器的地址栏看到提交的参数，即便是密码也看得到 
+
+       ``` html
+       <form method="get" action="http://how2j.cn/study/login.jsp">
+       账号：<input type="text" name="name"> <br/>
+       密码：<input type="password" name="password" > <br/>
+       <input type="submit" value="登陆">
+       </form>
+       ```
+
+     - method="post"
+
+       使用 method="post" 也可以提交数据  post 不会在地址栏显示提交的参数  如果要提交二进制数据，比如上传文件，必须采用 post 方式 
+
+       ```html
+       <form method="post" action="http://how2j.cn/study/login.jsp">
+       账号：<input type="text" name="name"> <br/>
+       密码：<input type="password" name="password" > <br/>
+       <input type="submit" value="登陆">
+       </form>
+       ```
+
+     - get 和 post 的区别
+
+       get  是 form 默认的提交方式  如果通过一个超链访问某个地址，是 get 方式  如果在地址栏直接输入某个地址，是 get 方式  提交数据会在浏览器显示出来  不可以用于提交二进制数据，比如上传文件  
+
+       post  必须在 form 上通过 method="post" 显示指定  提交数据不会在浏览器显示出来  可以用于提交二进制数据，比如上传文件 
+
+  4. 单选框
+
+     `<input type="radio">` 表示单选框
+
+     - checked 属性：默认选中
+     - 分组：分组即：多个单选框，都在一个分组里，同一时间，只能选中一个单选框  设置 name 属性相同即可 
+
+  5. 复选框
+
+     `<input type="checkbox"> `即表示复选框 
+
+  6. 下拉列表
+
+     `<select>` 即下拉列表  需要配合`<option>`使用 
+
+     ```html
+     <select >
+      <option >苍老师</option>
+      <option >高树玛利亚</option>
+      <option >遥美</option>
+     </select>
+     ```
+
+     - size 属性：设置高度
+
+     ```html
+     <select  size="2">
+      <option >苍老师</option>
+      <option >高树玛利亚</option>
+      <option >遥美</option>
+     </select>
+     ```
+
+     - multiple 属性：设置多选
+
+     ```html
+     <select size="3" multiple="multiple">
+      <option >苍老师</option>
+      <option >高树玛利亚</option>
+      <option >遥美</option>
+     </select>
+     ```
+
+     - selected 属性：默认选中
+
+     ```html
+     <select size="3" multiple="multiple">
+      <option >苍老师</option>
+      <option selected="selected">高树玛利亚</option>
+      <option selected="selected">遥美</option>
+     </select>
+     ```
+
+  7. 文本域
+
+  8. 普通按钮
+
+  9. 提交按钮
+
+  10. 重置按钮
+
+  11. 图像提交
+
+  12. 按钮
