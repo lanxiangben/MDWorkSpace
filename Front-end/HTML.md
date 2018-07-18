@@ -275,12 +275,100 @@
 
   7. 文本域
 
+     `<textarea> `即文本域，与文本框不同的是，文本域可以有多行，并且可以有滚动条 
+
+     ```html
+     <textarea>abc
+     def
+     </textarea>
+     ```
+
+     - cols 和 rows 属性：设置宽度和行数
+
+     ```html
+     <textarea cols="30" rows="8">123456789012345678901234567890
+     1234567890
+     1234567890
+     1234567890
+     1234567890
+     1234567890
+     1234567890
+     1234567890</textarea>
+     ```
+
   8. 普通按钮
+
+     `<input type="button">` 即普通按钮，不具备提交效果
+
+     ```html
+     <input type="button" value="一个按钮">
+     ```
 
   9. 提交按钮
 
+     `<input type="submit">` 即为提交按钮  用于提交 form，把数据提交到服务端 
+
+     ```html
+     <form action="/study/login.jsp" method="get">
+     账号：<input type="text" name="name"> <br/>
+     密码：<input type="password" name="password" > <br/>
+     <input type="submit" value="登陆">
+     </form>
+     ```
+
   10. 重置按钮
+
+      `<input type="reset">` 重置按钮 可以把输入框的改动复原  
+
+      ```html
+      <form action="/study/login.jsp">
+      账号：<input type="text" name="name"> <br/>
+      密码：<input type="password" name="password" > <br/>
+      <input type="submit" value="提交">
+      <input type="reset" value="重置">
+      </form>
+      ```
 
   11. 图像提交
 
+      `<input type="image" >` 即使用图像作为按钮进行 form 的提交 
+
+      - src 属性：
+
+      ```html
+      <form action="/study/login.jsp">
+      账号：<input type="text" name="name"> <br/>
+      密码：<input type="password" name="password" > <br/>
+      <input type="image" src="http://how2j.cn/example.gif">
+      </form>
+      ```
+
   12. 按钮
+
+      `<button></button>`即按钮标签  与`input type="button">`不同的是，`<button>`标签功能更为丰富，按钮标签里的内容可以是文字也可以是图像，如果 button 的`type=“submit” `，那么它就具备提交 form 的功能 
+
+      - button 里是文字
+
+        ```html
+        <button>按钮</button>
+        ```
+
+      - button里是图片
+
+        ```html
+        <button><img src="http://how2j.cn/example.gif"/></button>
+        ```
+
+      - 提交数据
+
+        ```html
+        <form action="/study/login.jsp">
+        账号：<input type="text" name="name"> <br/>
+        密码：<input type="password" name="password" > <br/>
+         
+        <button type="submit">登陆</button>
+         
+        </form>
+        ```
+
+        
