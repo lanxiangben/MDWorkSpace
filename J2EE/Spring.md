@@ -30,6 +30,8 @@
 
    - applicationContext.xml 配置文件
 
+     > applicationContext.xml 是 Spring 的核心配置文件，通过关键字 c 即可获取 Category 对象，该对象获取的时候，即被注入了字符串"category 1“到 name 属性中 
+
      ```xml
      <?xml version="1.0" encoding="UTF-8"?>
      <beans xmlns="http://www.springframework.org/schema/beans"
@@ -56,6 +58,8 @@
 
    - 测试类 TestSpring
 
+     > 测试代码，演示通过 Spring 获取 Category 对象，以及该对象被注入的 name 属性。 
+
      ```java
      package com.how2java.test;
       
@@ -79,7 +83,8 @@
 
     - 运行结果
 
-      ![avatar](http://how2j.cn/frontstepImage?stepid=214)
+      > 如图所示，可以打印出通过Spring拿到的Category对象的name属性
+![运行结果](C:\Users\向奔\Desktop\GitHub\MarkDownNoteBook\J2EE\img\214.png)
 
 2. ## 注入对象
 
@@ -108,6 +113,8 @@
      ```
 
    - Product 类
+
+     >  Product 类中有对 Category 对象的 setter 和 getter 
 
      ```java
      package com.how2java.pojo;
@@ -139,6 +146,8 @@
      ```
 
    - applicationContext 配置文件
+
+     > 在创建 Product 的时候注入一个 Category 对象 注意，这里要使用 ref 来注入另一个对象 
 
      ```xml
      <?xml version="1.0" encoding="UTF-8"?>
@@ -191,7 +200,9 @@
 
     - 运行效果
 
-      ![avatar](http://how2j.cn/frontstepImage?stepid=217)
+      > 通过 Spring 拿到的 Product 对象已经被注入了 Category 对象了 
+
+      ![avatar](C:\Users\向奔\Desktop\GitHub\MarkDownNoteBook\J2EE\img\217.png)
 
 3. ## 注解方式 IOC/DI
 
