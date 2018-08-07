@@ -280,6 +280,116 @@ finally 里返回3；
 
 # 异常分类
 
+异常分为可查异常、运行时异常和错误
+
+其中，运行时异常和错误又叫非可查异常
+
+## 可查异常
+
+CheckedException, 即**必须进行处理的异常**，要么 try catch 住，要么往外抛，谁调用，谁处理，比如 FileNotFoundException, 如果不处理，编译器就不让你通过。
+
+```java
+package exception;
+  
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+  
+public class TestException {
+  
+    public static void main(String[] args) {
+          
+        File f= new File("d:/LOL.exe");
+          
+        try{
+            System.out.println("试图打开 d:/LOL.exe");
+            new FileInputStream(f);
+            System.out.println("成功打开");
+        }
+        catch(FileNotFoundException e){
+            System.out.println("d:/LOL.exe不存在");
+            e.printStackTrace();
+        }
+          
+    }
+}
+```
+
+
+
+## 运行时异常
+
+RuntimeException 指**不是必须进行 try catch 的异常**
+
+常见运行时异常有：
+
+1. 除数不能为0异常 ArithmeticException
+2. 下标越界异常 ArrayIndexOutOfBoundsException
+3. 空指针异常 NullPointerException
+
+在编写代码时，仍然可用 try catch 处理，与**可查异常**的区别是：即使不处理，编译器也可以通过。Java之所以设计**运行时异常**，是因为此类异常太普遍，如果都要进行捕捉处理，则代码可读性会变差。
+
+```java
+package exception;
+  
+public class TestException {
+  
+    public static void main(String[] args) {
+         
+        //任何除数不能为0:ArithmeticException
+        int k = 5/0;
+         
+        //下标越界异常：ArrayIndexOutOfBoundsException
+        int j[] = new int[5];
+        j[10] = 10;
+         
+        //空指针异常：NullPointerException
+        String str = null;
+        str.length();
+   }
+}
+```
+
+
+
+## 错误
+
+Error, 是指**系统级别的异常**，通常是内存用光了
+
+在默认设置下，一般 Java 程序启动时，最大可用 16m 的内存
+
+如下列例子中，不停给 StringBuffer 追加字符，很快就把内存使用光了。抛出 OutOfMemoryError。与**运行时异常**一样，**错误**也不要求强制捕捉。
+
+```java
+package exception;
+  
+public class TestException {
+  
+    public static void main(String[] args) {
+     
+        StringBuffer sb =new StringBuffer();
+         
+        for (int i = 0; i < Integer.MAX_VALUE; i++) {
+            sb.append('a');
+        }
+         
+    }
+ 
+}
+```
+
+## 常见异常所属分类
+
+## 问题
+
+运行时异常 RuntimeException，能否被捕捉？  
+
+错误Error，能否被捕捉？  
+
+面试题常问题： 运行时异常与非运行时异常的区别 
+
+
+
 # Throwable
 
 # 自定义异常
